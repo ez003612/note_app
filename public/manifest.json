@@ -1,4 +1,11 @@
 {
+  "name": "note application",
+  "short_name": "note app",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "lang": "zh-Hant-TW",
+  "description": "這是一個簡單免費的筆記應用程式",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -72,5 +79,7 @@
       "sizes": "150x150",
       "type": "image/png"
     }
-  ]
+  ],
+  "orientation": "landscape",
+  "start_url": "./"
 }
