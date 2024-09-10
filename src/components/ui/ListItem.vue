@@ -17,7 +17,7 @@ const removeNote = () => {
 <template>
   <li class="flex justify-between items-center py-2 sm:py-3 w-full">
     <span class="max-w-40 truncate">
-      <router-link :to="`/edit_note/${note.id}`">{{ note.title }}</router-link>
+      <router-link :to="`/note_app/edit_note/${note.id}`">{{ note.title }}</router-link>
     </span>
     <div class="inline-flex" role="group">
       <button @click="togglePinned(note.id)" class="w-9 h-9 bg-transparent hover:bg-gray-400 transition">

@@ -8,7 +8,14 @@ const { togglePinned, removeNote } = noteStores()
 
 <template>
   <div class="container">
-    <h2 class="my-5 text-gray-900 dark:text-white">{{ noteData.settings.searchQuery ? '搜尋結果：' : '全部筆記' }}</h2>
+    <h2 class="my-5 text-gray-900 dark:text-white">
+      <span v-if="noteData.settings.searchQuery">
+        搜尋
+        <span class="text-red-500">{{ noteData.settings.searchQuery }}</span>
+        結果：
+      </span>
+      <span v-else>全部筆記:</span>
+    </h2>
     <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <NoteCard
         v-for="note in noteData.filteredNotes"

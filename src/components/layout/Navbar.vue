@@ -1,20 +1,30 @@
 <script setup>
 import 'flowbite'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { noteStores } from '../../stores/noteStores.js'
 import ToggleDarkModeButton from '../ui/ToggleDarkModeButton.vue'
 
+const noteData = noteStores()
 const { searchNotes } = noteStores()
 const searchQuery = ref('')
+
+onMounted(() => {
+  searchQuery.value = noteData.settings.searchQuery
+})
+
+const CancelSearch = () => {
+  searchQuery.value = ''
+  searchNotes('')
+}
 </script>
 
 <template>
   <header>
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <router-link to="/">
+        <router-link to="/note_app/">
           <div class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="../../assets/note_logo.png" class="h-8" alt="首頁" />
+            <img src="../../assets/note_logo.png" class="h-8 rounded" alt="首頁" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Home</span>
           </div>
         </router-link>
@@ -25,6 +35,14 @@ const searchQuery = ref('')
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <i class="w-4 h-4 text-gray-500 dark:text-gray-400 fa-solid fa-magnifying-glass"></i>
               <span class="sr-only">Search icon</span>
+            </div>
+            <div
+              v-show="searchQuery"
+              @click="CancelSearch"
+              class="absolute inset-y-0 end-0 flex items-center pe-3 cursor-pointer"
+            >
+              <i class="h-4 text-gray-500 dark:text-gray-400 fa-solid fa-xmark"></i>
+              <span class="sr-only">Cancel icon</span>
             </div>
             <input
               v-model="searchQuery"

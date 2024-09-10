@@ -14,7 +14,7 @@ const removeNote = () => {
 </script>
 
 <template>
-  <router-link :to="`/edit_note/${note.id}`">
+  <router-link :to="`/note_app/edit_note/${note.id}`">
     <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div class="flex justify-between items-center">
         <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white truncate">
