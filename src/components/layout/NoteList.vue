@@ -9,11 +9,11 @@ const { toggleListPinned, removeNote, togglePinned } = noteStores()
 </script>
 
 <template>
-  <section class="flex">
-    <div class="flex flex-col gap-3 w-60 p-2">
+  <section class="flex sm:flex-row flex-col h-72 sm:h-screen overflow-hidden">
+    <div class="flex flex-col gap-3 w-full h-60 sm:w-60 sm:h-full p-2 overflow-auto">
       <div class="flex items-center justify-between">
         <h2 class="m-5">Menu</h2>
-        <NoteButton @click="toggleListPinned">
+        <NoteButton @click="toggleListPinned" class="hidden sm:block">
           <i :class="['fa-solid', 'fa-thumbtack', { 'rotate-45': !noteData.settings.noteListPinned }]"></i>
         </NoteButton>
       </div>
@@ -37,7 +37,7 @@ const { toggleListPinned, removeNote, togglePinned } = noteStores()
           </button>
         </h2>
         <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
-          <ul class="ps-3 max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+          <ul class="ps-3 max-w sm:max-w-md divide-y divide-gray-200 dark:divide-gray-700">
             <ListItem
               v-for="note in noteData.pinnedNotes"
               :key="note.id"
@@ -61,7 +61,7 @@ const { toggleListPinned, removeNote, togglePinned } = noteStores()
           </button>
         </h2>
         <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
-          <ul class="ps-3 max-w-md divide-y divide-gray-200 dark:divide-gray-700">
+          <ul class="ps-3 max-w sm:max-w-md divide-y divide-gray-200 dark:divide-gray-700">
             <ListItem
               v-for="note in noteData.unPinnedNotes"
               :key="note.id"
@@ -75,7 +75,7 @@ const { toggleListPinned, removeNote, togglePinned } = noteStores()
     </div>
     <div
       v-show="!noteData.settings.noteListPinned"
-      class="w-12 h-screen bg-sky-300 dark:bg-sky-700 flex flex-col items-center text-4xl py-8 gap-4"
+      class="order-first sm:order-last h-12 sm:w-12 sm:h-screen bg-sky-300 dark:bg-sky-700 flex flex-col items-center text-4xl py-8 gap-4"
     >
       <!-- <i class="fa-solid fa-bars"></i> -->
     </div>

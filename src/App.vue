@@ -14,7 +14,7 @@ const noteData = noteStores()
 const noteListPinnedProps = reactive({ class: 'basis-1/5 translate-x-0' })
 const noteListUnpinnedProps = reactive({
   class:
-    'fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform -translate-x-60 hover:translate-x-0 bg-white w-72 mx-auto dark:bg-gray-800',
+    'fixed bottom-0 left-0 z-40 bg-white mx-auto overflow-y-auto transition-transform w-full h-72 translate-y-60 sm:top-0 sm:translate-y-0 sm:-translate-x-60 sm:w-72 sm:h-screen hover:translate-y-0 hover:sm:translate-x-0  dark:bg-gray-800',
 })
 const computedProps = computed(() => (noteData.settings.noteListPinned ? noteListPinnedProps : noteListUnpinnedProps))
 
