@@ -4,13 +4,10 @@ import { defineProps, defineEmits } from 'vue'
 const props = defineProps({
   note: Object,
 })
-const emit = defineEmits(['togglePinned', 'removeNote'])
+const emit = defineEmits(['togglePinned'])
 
 const togglePinned = () => {
   emit('togglePinned', props.note.id)
-}
-const removeNote = () => {
-  emit('removeNote', props.note.id)
 }
 </script>
 
@@ -24,9 +21,6 @@ const removeNote = () => {
         <i
           :class="['fa-solid', 'fa-thumbtack', 'text-gray-900', 'dark:text-white', { 'rotate-45': !note.isPinned }]"
         ></i>
-      </button>
-      <button @click="removeNote(note.id)" class="w-9 h-9 bg-transparent hover:bg-gray-400 transition">
-        <i class="fa-solid fa-trash-can text-gray-900 dark:text-white"></i>
       </button>
     </div>
   </li>

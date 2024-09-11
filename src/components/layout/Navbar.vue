@@ -81,6 +81,14 @@ const CancelSearch = () => {
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <i class="w-4 h-4 text-gray-500 dark:text-gray-400 fa-solid fa-magnifying-glass"></i>
             </div>
+            <div
+              v-show="searchQuery"
+              @click="CancelSearch"
+              class="absolute inset-y-0 end-0 flex items-center pe-3 cursor-pointer"
+            >
+              <i class="h-4 text-gray-500 dark:text-gray-400 fa-solid fa-xmark"></i>
+              <span class="sr-only">Cancel icon</span>
+            </div>
             <input
               v-model="searchQuery"
               @input="searchNotes(searchQuery)"

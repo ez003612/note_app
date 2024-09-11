@@ -22,10 +22,7 @@ const removeNote = () => {
         </h5>
         <div class="inline-flex rounded-md shadow-sm gap-2" role="group">
           <NoteButton @click.prevent="togglePinned(note.id)">
-            <i :class="['fa-solid', 'fa-thumbtack', { 'rotate-45': !note.isPinned }]"></i>
-          </NoteButton>
-          <NoteButton @click.prevent="removeNote(note.id)">
-            <i class="fa-solid fa-trash-can"></i>
+            <i :class="['fa-solid', 'fa-thumbtack', { 'rotate-45 ': !note.isPinned }]"></i>
           </NoteButton>
         </div>
       </div>

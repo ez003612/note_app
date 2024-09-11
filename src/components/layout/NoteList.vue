@@ -5,7 +5,7 @@ import ListItem from '../ui/ListItem.vue'
 import NoteButton from '../ui/NoteButton.vue'
 
 const noteData = noteStores()
-const { toggleListPinned, removeNote, togglePinned } = noteStores()
+const { toggleListPinned, togglePinned } = noteStores()
 </script>
 
 <template>
@@ -43,7 +43,6 @@ const { toggleListPinned, removeNote, togglePinned } = noteStores()
               :key="note.id"
               :note="note"
               @togglePinned="togglePinned(note.id)"
-              @removeNote="removeNote(note.id)"
             />
           </ul>
         </div>
@@ -67,7 +66,6 @@ const { toggleListPinned, removeNote, togglePinned } = noteStores()
               :key="note.id"
               :note="note"
               @togglePinned="togglePinned(note.id)"
-              @removeNote="removeNote(note.id)"
             />
           </ul>
         </div>

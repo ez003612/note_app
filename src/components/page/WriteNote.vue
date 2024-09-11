@@ -58,7 +58,7 @@ const onSubmit = () => {
 
 const remove = () => {
   removeNote(note_id.value)
-  router.push('/')
+  router.push('/note_app/')
 }
 </script>
 
