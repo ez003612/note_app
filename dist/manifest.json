@@ -80,6 +80,5 @@
       "type": "image/png"
     }
   ],
-  "orientation": "any",
   "start_url": "./"
 }
